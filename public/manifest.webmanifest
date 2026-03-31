@@ -1,0 +1,23 @@
+{
+  "name": "Chasse aux œufs",
+  "short_name": "Egg Hunt",
+  "description": "Application mobile pour une chasse aux œufs via QR Code",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F4F1E8",
+  "theme_color": "#F6D36B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

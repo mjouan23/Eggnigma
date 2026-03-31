@@ -1,0 +1,85 @@
+:root {
+    --primary: #3FA7B3;
+    --secondary: #F6D36B;
+    --success: #6FAF3A;
+    --dark: #3A2A1F;
+    --light: #FFFFFF;
+}
+
+body {
+    background: var(--light);
+    color: var(--dark);
+}
+
+a {
+    color: var(--light);
+    text-decoration: none;
+}
+
+.hero {
+    min-height: 22rem;
+}
+
+/* Page Home */
+.list-group-item-success {
+    background-color: var(--secondary) !important;
+    color: var(--light) !important;
+}
+
+.alert-info {
+    background-color: var(--primary) !important;
+    color: var(--light) !important;
+}
+
+.badge.bg-primary {
+    background-color: var(--primary) !important;
+}
+.badge.bg-success {
+    background-color: var(--success) !important;
+}
+/*  Page Enigme */
+.card-header, .card-footer {
+    background-color: var(--primary) !important;
+    color: var(--light) !important;
+}
+
+.btn.btn-outline-secondary,
+.btn.btn-outline-secondary:active:focus:hover {
+    background-color: transparent !important;
+    border-color: var(--secondary) !important;
+    color: var(--secondary) !important;
+}
+.btn.btn-success {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+.alert.alert-success {
+    background-color: var(--success) !important;
+    color: var(--light) !important;
+}
+.alert.alert-danger {
+    background-color: var(--dark) !important;
+    color: var(--light) !important;
+}
+
+#scanQRCodeButton {
+    position: fixed;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    background: var(--primary);
+    padding: 0;
+    z-index: 1050;
+}
+
+#scanQRCodeButton svg {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    fill: #FFF;
+}
