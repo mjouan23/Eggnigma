@@ -30,8 +30,9 @@ html, body {
     border-color: var(--secondary) !important;
 }
 
-.hero {
-    min-height: 22rem;
+/* Page Rules */
+.text-danger {
+    color: var(--dark) !important;
 }
 
 /* Page Home */
