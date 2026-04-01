@@ -3,12 +3,12 @@
 @section('title', 'Règles - Chasse aux œufs')
 
 @section('content')
-<div class="text-center mb-4">
+<div class="text-center">
     <img src="{{ asset('images/logo.png') }}" alt="Eggnigma" height="130">
     <h1>Règles du jeu</h1>
 </div>
 
-<div class="card shadow-sm mb-4">
+<div class="card shadow-sm mb-3">
     <div class="card-body">
         <h2 class="h5">Comment jouer ?</h2>
         <ul class="list-unstyled mt-3">
