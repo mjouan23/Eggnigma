@@ -30,14 +30,7 @@ class EggSeeder extends Seeder
                 'clue' => 'Je suis un code unique de cinq lettres pour éviter les triches. Où suis-je utilisé ?',
                 'hint' => '',
                 'answer' => 'Dans l\'adresse du QR Code',
-            ],  
-            [
-                'code' => 'ZJRVW',
-                'title' => 'Chasse secrète',
-                'clue' => 'Je suis un code unique de cinq lettres pour éviter les triches. Où suis-je utilisé ?',
-                'hint' => '',
-                'answer' => 'Dans l\'adresse du QR Code',
-            ],  
+            ],
             [
                 'code' => 'QZLPA',
                 'title' => '',
@@ -145,6 +138,13 @@ class EggSeeder extends Seeder
             ],  
             [
                 'code' => 'MEGXA',
+                'title' => '',
+                'clue' => '',
+                'hint' => '',
+                'answer' => '',
+            ],  
+            [
+                'code' => 'RDNOC',
                 'title' => '',
                 'clue' => '',
                 'hint' => '',
