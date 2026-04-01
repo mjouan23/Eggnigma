@@ -5,7 +5,7 @@
 @section('content')
 <div class="text-center">
     <img src="{{ asset('images/logo.png') }}" alt="Eggnigma" height="100">
-    <h1>Règles du jeu</h1>
+    <h1 class="mt-2">Règles du jeu</h1>
 </div>
 
 <div class="card shadow-sm mb-3">
@@ -24,9 +24,9 @@
         <h2 class="h5 mt-2">À noter</h2>
         <p>Les énigmes trouvées sont listées sur la page d'accueil. Seules les énigmes résolues seront marquées comme <span class="badge bg-success">Résolu</span>.</p>
     </div>
-</div>
-<div class="text-center mb-3">
-    <a href="{{ route('home') }}" class="btn btn-secondary btn-lg">C'est parti !</a>
+    <div class="text-center mb-3">
+        <a href="{{ route('home') }}" class="btn btn-secondary btn-lg">C'est parti !</a>
+    </div>
 </div>
 @endsection
 @push('scripts')
