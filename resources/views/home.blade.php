@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="text-center mb-4">
-    <h1><img src="{{ asset('images/logo.png') }}" alt="Eggnigma" height="130"></h1>
+    <h1><img src="{{ asset('images/logo.png') }}" alt="Eggnigma" height="100"></h1>
     <p class="lead">Trouvez les œufs et scannez le QR Code pour découvrir l'énigme.</p>
 </div>
 

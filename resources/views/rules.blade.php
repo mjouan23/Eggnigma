@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="text-center">
-    <img src="{{ asset('images/logo.png') }}" alt="Eggnigma" height="130">
+    <img src="{{ asset('images/logo.png') }}" alt="Eggnigma" height="100">
     <h1>Règles du jeu</h1>
 </div>
 
