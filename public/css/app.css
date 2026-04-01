@@ -20,8 +20,8 @@ html, body {
 }
 
 .content {
-    min-height: calc(100vh - 80px);
-    max-height: calc(100vh - 80px);
+    min-height: calc(100vh - 60px);
+    max-height: calc(100vh - 60px);
     overflow-y: auto;
     padding-bottom: 1.5rem;
 }
@@ -81,7 +81,7 @@ html, body {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 80px;
+    height: 60px;
     padding: 0 1.75rem;
     display: flex;
     align-items: center;
@@ -98,8 +98,8 @@ html, body {
 }
 
 .bottom-nav-icon {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     border: none;
     background: transparent;
     color: var(--light);
@@ -110,8 +110,8 @@ html, body {
 }
 
 .bottom-nav-icon svg {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     stroke: currentColor;
 }
 
