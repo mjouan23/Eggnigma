@@ -12,7 +12,7 @@
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <div>
-                <h2 class="h5 mb-0">Œufs trouvés</h2>
+                <h2 class="h5 mb-0"><span class="eggCounter"><span id="foundEggCount">0</span>/20</span> œufs trouvés</h2>
                 <!-- <small class="text-muted">Les liens sont enregistrés dans votre navigateur.</small> -->
             </div>
             <!-- <button id="clearFoundEggs" class="btn btn-outline-secondary btn-sm">Effacer la liste</button> -->

@@ -72,6 +72,56 @@
                 .toLowerCase();
         }
 
+        function showOverlay(imageUrl) {
+            const overlay = document.createElement('div');
+            overlay.className = 'answer-overlay';
+            Object.assign(overlay.style, {
+                position: 'fixed',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%',
+                backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                zIndex: '2000',
+                padding: '0',
+                margin: '0'
+            });
+
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.alt = 'Réponse';
+            Object.assign(img.style, {
+                maxWidth: '100%',
+                maxHeight: '100%',
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain'
+            });
+
+            overlay.appendChild(img);
+            document.body.appendChild(overlay);
+
+            return overlay;
+        }
+
+        function showGoodAnswerOverlay() {
+            const overlay = showOverlay(@json(asset('images/good-answer.png')));
+            setTimeout(function () {
+                overlay.remove();
+                window.location.href = @json(url('/'));
+            }, 2000);
+        }
+
+        function showWrongAnswerOverlay() {
+            const overlay = showOverlay(@json(asset('images/wrong-answer.png')));
+            setTimeout(function () {
+                overlay.remove();
+            }, 2000);
+        }
+
         answerForm.addEventListener('submit', function (event) {
             event.preventDefault();
 
@@ -85,12 +135,14 @@
             }
 
             if (normalizedUserAnswer === normalizedExpectedAnswer) {
-                answerFeedback.innerHTML = '<div class="alert alert-success">Bonne réponse !</div>';
+                answerFeedback.innerHTML = '';
                 if (typeof markEggSolved === 'function') {
                     markEggSolved(@json($egg->code));
                 }
+                showGoodAnswerOverlay();
             } else {
-                answerFeedback.innerHTML = '<div class="alert alert-danger">Désolé, ce n\'est pas la bonne réponse.</div>';
+                answerFeedback.innerHTML = '';
+                showWrongAnswerOverlay();
             }
         });
     });

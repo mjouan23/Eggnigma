@@ -64,6 +64,13 @@ function markEggSolved(code) {
     saveFoundEggs(updated);
 }
 
+function updateFoundEggCount(count) {
+    const countEl = document.getElementById('foundEggCount');
+    if (countEl) {
+        countEl.textContent = count;
+    }
+}
+
 function renderFoundEggs() {
     const list = document.getElementById('foundEggs');
     const noEggs = document.getElementById('noEggs');
@@ -72,6 +79,7 @@ function renderFoundEggs() {
     }
 
     const eggs = getFoundEggs();
+    updateFoundEggCount(eggs.length);
     list.innerHTML = '';
 
     if (eggs.length === 0) {

@@ -35,6 +35,10 @@ html, body {
 }
 
 /* Page Home */
+.eggCounter {
+    color: var(--secondary);
+    font-size: 1.5em;
+}
 .list-group-item-success {
     background-color: var(--secondary) !important;
     color: var(--light) !important;
