@@ -1,6 +1,6 @@
 {
-  "name": "Chasse aux œufs",
-  "short_name": "Egg Hunt",
+  "name": "Eggnigma",
+  "short_name": "Eggnigma",
   "description": "Application mobile pour une chasse aux œufs via QR Code",
   "start_url": "/",
   "scope": "/",
