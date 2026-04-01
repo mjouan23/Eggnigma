@@ -20,10 +20,10 @@
 </button>
 <div id="qrScannerOverlay" class="qr-scanner-overlay" style="display:none;">
     <div class="qr-scanner-card">
+        <button id="qrScannerClose" type="button" class="qr-scanner-close" aria-label="Fermer le scan">×</button>
         <video id="qrScannerVideo" autoplay playsinline muted></video>
         <div class="qr-scanner-footer">
             <span id="qrScannerMessage">Positionne le QR code dans la fenêtre.</span>
-            <button id="qrScannerClose" type="button" class="btn btn-light btn-sm">Fermer</button>
         </div>
     </div>
 </div>
