@@ -41,9 +41,6 @@
             <div id="answer-feedback" class="mt-3"></div>
         </div>
     </div>
-    <div class="card-footer text-center">
-        <a href="{{ route('home') }}" class="mt-3">Retour à la liste des énigmes</a>
-    </div>
 </div>
 @endsection
 
