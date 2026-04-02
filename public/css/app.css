@@ -28,6 +28,8 @@ body.rules-page .content {
     max-height: 100svh;
 }
 body.countdown-page .content {
+    min-height: 100svh;
+    max-height: 100svh;
     margin: 0 !important;
     padding: 0 !important;
     overflow-y: hidden !important;
