@@ -145,6 +145,17 @@
                 showWrongAnswerOverlay();
             }
         });
+
+        if (localStorage.getItem('eggHuntSessionElapsed') === '1') {
+            const form = document.getElementById('answer-form');
+            if (form) {
+                form.querySelector('input, button').disabled = true;
+                const msg = document.createElement('div');
+                msg.className = 'alert alert-warning mt-3';
+                msg.textContent = 'La chasse est terminée, tu ne peux plus répondre à cette énigme.';
+                form.parentNode.insertBefore(msg, form.nextSibling);
+            }
+        }
     });
 </script>
 @endpush

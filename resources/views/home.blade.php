@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Accueil - Chasse aux œufs')
+@section('title', 'Liste des énigmes - Eggnigma')
 
 @section('content')
 <div class="text-center mb-4">
@@ -12,7 +12,18 @@
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <div>
-                <h2 class="h5 mb-0"><span class="eggCounter"><span id="foundEggCount">0</span>/20</span> œufs trouvés</h2>
+                <h2 class="h5 mb-0">
+                    <div class="ms-3">
+                        <span class="eggCounter">
+                            <span id="foundEggCount">0</span>/20
+                        </span> œufs trouvés
+                    </div>
+                    <div class="ms-3">
+                        <span class="solvedEggCounter">
+                            <span id="solvedEggCount">0</span>/20
+                        </span> énigmes résolues
+                    </div>
+                </h2>
                 <!-- <small class="text-muted">Les liens sont enregistrés dans votre navigateur.</small> -->
             </div>
             <!-- <button id="clearFoundEggs" class="btn btn-outline-secondary btn-sm">Effacer la liste</button> -->
@@ -27,8 +38,19 @@
 @push('scripts')
 <script src="{{ asset('js/egg-hunt.js') }}"></script>
 <script>
+    function updateSolvedEggCount(count) {
+        const solvedEl = document.getElementById('solvedEggCount');
+        if (solvedEl) {
+            solvedEl.textContent = count;
+        }
+    }
+    function countSolvedEggs() {
+        const eggs = window.getFoundEggs ? window.getFoundEggs() : [];
+        return eggs.filter(e => e.solved).length;
+    }
     document.addEventListener('DOMContentLoaded', function () {
         initHomePage();
+        updateSolvedEggCount(countSolvedEggs());
     });
 </script>
 @endpush

@@ -19,9 +19,15 @@ html, body {
     height: 100%;
 }
 
-.content {
+body:not(.rules-page) .content {
     min-height: calc(100svh - 60px);
     max-height: calc(100svh - 60px);
+}
+body.rules-page .content {
+    min-height: 100svh;
+    max-height: 100svh;
+}
+.content {
     overflow-y: auto;
     padding-bottom: 1.5rem;
 }
@@ -31,14 +37,19 @@ html, body {
 }
 
 /* Page Rules */
-.text-danger {
-    color: var(--dark) !important;
+.alert-danger {
+    background-color: var(--dark) !important;
+    color: var(--light) !important;
 }
 
 /* Page Home */
 .eggCounter {
     color: var(--secondary);
-    font-size: 1.5em;
+    font-size: 1.2em;
+}
+.solvedEggCounter {
+    color: var(--success);
+    font-size: 1.2em;
 }
 .list-group-item-success {
     background-color: var(--secondary) !important;
@@ -57,6 +68,13 @@ html, body {
     background-color: var(--success) !important;
 }
 /*  Page Enigme */
+.accordion-button:not(.collapsed) {
+    background-color: initial !important;
+    color: initial !important;
+}
+button:focus:not(:focus-visible) {
+    box-shadow: none !important;
+}
 .card-header, .card-footer {
     background-color: var(--primary) !important;
     color: var(--light) !important;
@@ -80,6 +98,12 @@ html, body {
     background-color: var(--dark) !important;
     color: var(--light) !important;
 }
+
+/* Page Rules */
+.bg-dark {
+    background-color: var(--dark) !important;
+}
+
 /* Scanner d'oeufs */
 .bottom-nav {
     position: fixed;

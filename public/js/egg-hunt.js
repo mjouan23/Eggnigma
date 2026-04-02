@@ -16,7 +16,16 @@ function saveFoundEggs(eggs) {
     localStorage.setItem('eggHuntFoundEggs', JSON.stringify(eggs));
 }
 
+function isSessionElapsed() {
+    return localStorage.getItem('eggHuntSessionElapsed') === '1';
+}
+
 function addFoundEgg(egg) {
+    if (isSessionElapsed()) {
+        alert('La chasse est terminée, tu ne peux plus scanner de nouveaux œufs.');
+        return;
+    }
+
     if (!egg || !egg.code) {
         return;
     }
@@ -45,6 +54,11 @@ function addFoundEgg(egg) {
 }
 
 function markEggSolved(code) {
+    if (isSessionElapsed()) {
+        alert('La chasse est terminée, tu ne peux plus répondre aux énigmes.');
+        return;
+    }
+
     if (!code) {
         return;
     }
