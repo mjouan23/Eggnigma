@@ -19,7 +19,7 @@ html, body {
     height: 100%;
 }
 
-body:not(.rules-page) .content {
+body:not(.rules-page):not(.countdown-page) .content {
     min-height: calc(100svh - 60px);
     max-height: calc(100svh - 60px);
 }
@@ -27,7 +27,12 @@ body.rules-page .content {
     min-height: 100svh;
     max-height: 100svh;
 }
-.content {
+body.countdown-page .content {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-y: hidden !important;
+}
+.content:not(.countdown-page) {
     overflow-y: auto;
     padding-bottom: 1.5rem;
 }

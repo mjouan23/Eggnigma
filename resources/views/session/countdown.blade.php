@@ -1,4 +1,9 @@
 @extends('layouts.app')
+
+@section('title', 'Compte à rebours - Eggnigma')
+@section('body-class', 'countdown-page')
+
+@section('content')
 <div id="countdown-container" class="d-flex flex-column justify-content-center align-items-center vh-100 bg-dark text-light" style="min-height:100vh;">
     <h1 id="session-name" class="mb-4 text-center"></h1>
     <img src="{{ asset('images/logo.png') }}" alt="Eggnigma" class="mb-4" height="230">
@@ -9,6 +14,7 @@
         <img src="{{ asset('images/elapsed-time.png') }}" alt="Temps écoulé" style="max-width:90vw;max-height:90vh;">
     </div>
 </div>
+@endsection
 
 @push('scripts')
 <script>
