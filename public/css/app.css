@@ -32,7 +32,6 @@ body.countdown-page .content {
     max-height: 100svh;
     margin: 0 !important;
     padding: 0 !important;
-    padding-bottom: 60px !important;
     overflow-y: hidden !important;
 }
 .content:not(.countdown-page) {
