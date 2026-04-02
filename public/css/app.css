@@ -43,7 +43,7 @@ body.countdown-page .content {
     border-color: var(--secondary) !important;
 }
 
-/* Page Rules */
+/* Page Organizater */
 .alert-danger {
     background-color: var(--dark) !important;
     color: var(--light) !important;
@@ -73,6 +73,10 @@ body.countdown-page .content {
 }
 .badge.bg-success {
     background-color: var(--success) !important;
+}
+/* Page CountDown */
+#countdown-container {
+    padding-bottom: 80px;
 }
 /*  Page Enigme */
 .accordion-button:not(.collapsed) {

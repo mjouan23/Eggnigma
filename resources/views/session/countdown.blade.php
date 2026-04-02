@@ -4,7 +4,7 @@
 @section('body-class', 'countdown-page')
 
 @section('content')
-<div id="countdown-container" class="d-flex flex-column justify-content-center align-items-center vh-100 bg-dark text-light pb-5" style="min-height:100vh;">
+<div id="countdown-container" class="d-flex flex-column justify-content-center align-items-center vh-100 bg-dark text-light" style="min-height:100vh;">
     <h1 id="session-name" class="mb-4 text-center"></h1>
     <img src="{{ asset('images/logo.png') }}" alt="Eggnigma" class="mb-4" height="230">
     <div id="countdown" class="display-1 fw-bold mb-4"></div>
