@@ -1,3 +1,36 @@
+// Synchronisation en temps réel du blocage de session sur tous les onglets
+window.addEventListener('storage', function(e) {
+    if (e.key === 'eggHuntSessionElapsed' && e.newValue === '1') {
+        // Désactive tous les formulaires de réponse
+        document.querySelectorAll('#answer-form').forEach(form => {
+            form.querySelectorAll('input, button').forEach(el => el.disabled = true);
+            let msg = form.parentNode.querySelector('.alert.alert-warning.mt-3');
+            if (!msg) {
+                msg = document.createElement('div');
+                msg.className = 'alert alert-warning mt-3';
+                msg.textContent = 'La chasse est terminée, tu ne peux plus répondre à cette énigme.';
+                form.parentNode.insertBefore(msg, form.nextSibling);
+            }
+        });
+        // Désactive le bouton scan QR si présent
+        var scanBtn = document.getElementById('scanQRCodeButton');
+        if (scanBtn) {
+            scanBtn.disabled = true;
+            var scanMsg = document.getElementById('scanEndMessage');
+            if (!scanMsg) {
+                scanMsg = document.createElement('div');
+                scanMsg.id = 'scanEndMessage';
+                scanMsg.className = 'alert alert-warning text-center mt-2';
+                scanMsg.textContent = 'La chasse est terminée, tu ne peux plus scanner de nouveaux œufs.';
+                scanBtn.parentNode.insertBefore(scanMsg, scanBtn.nextSibling);
+            }
+        }
+        // Affiche un message plein écran
+        if (typeof showFullscreenMessage === 'function') {
+            showFullscreenMessage('La chasse est terminée !', 3000);
+        }
+    }
+});
 function getFoundEggs() {
     const stored = localStorage.getItem('eggHuntFoundEggs');
     if (!stored) {
