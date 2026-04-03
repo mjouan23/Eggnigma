@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('clue');
             $table->string('answer');
+            $table->string('information')->nullable();
             $table->timestamps();
         });
     }

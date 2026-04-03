@@ -33,6 +33,7 @@
             <form id="answer-form" class="row g-2">
                 <div class="col-12">
                     <input type="text" id="answer-input" class="form-control" placeholder="Tape ta réponse ici" autocomplete="off" required>
+                    <div id="answer-information" class="form-text text-info mt-1">@if(!empty($egg->information)){{ $egg->information }}@endif</div>
                 </div>
                 <div class="col-auto">
                     <button type="submit" class="btn btn-success">Vérifier</button>
@@ -57,6 +58,24 @@
 @endphp
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        // Affiche une indication dynamique sous le champ de saisie
+        const answerHint = document.getElementById('answer-hint');
+        if (answerHint && answerInput) {
+            answerInput.addEventListener('input', function() {
+                const val = answerInput.value;
+                if (!val) {
+                    answerHint.textContent = '';
+                } else if (val.length < 3) {
+                    answerHint.textContent = 'Continue à saisir ta réponse...';
+                } else if (/\d/.test(val)) {
+                    answerHint.textContent = 'Ta réponse contient un chiffre.';
+                } else if (/[^\w\sÀ-ÿ'-]/i.test(val)) {
+                    answerHint.textContent = 'Attention, caractères spéciaux détectés.';
+                } else {
+                    answerHint.textContent = '';
+                }
+            });
+        }
 
         // Désactive la saisie si l'énigme est déjà résolue
         function isEggSolved(eggCode) {
