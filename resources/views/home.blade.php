@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="text-center mb-4">
-    <h1><img src="{{ asset('images/logo.png') }}" alt="Eggnigma" height="100"></h1>
+    <h1><img src="{{ asset('images/logo.png') }}" alt="Eggnigma" height="100" id="eggnigma-logo-home"></h1>
     <p class="lead">Trouvez les œufs et scannez le QR Code pour découvrir l'énigme.</p>
 </div>
 
@@ -36,8 +36,19 @@
 @endsection
 
 @push('scripts')
+<script src="{{ asset('js/util.js') }}"></script>
 <script src="{{ asset('js/egg-hunt.js') }}"></script>
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var logo = document.getElementById('eggnigma-logo-home');
+        if (logo) {
+            logo.style.cursor = 'pointer';
+            logo.addEventListener('click', function(e) {
+                e.preventDefault();
+                showFullscreenMessage('Enigme RDNOC : Cocotte', 2500);
+            });
+        }
+    });
     function updateSolvedEggCount(count) {
         const solvedEl = document.getElementById('solvedEggCount');
         if (solvedEl) {
