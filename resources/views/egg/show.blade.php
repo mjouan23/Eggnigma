@@ -3,7 +3,7 @@
 @section('title', 'Énigme - ' . $egg->title)
 
 @section('content')
-<div class="card shadow-sm">
+<div id="egg-enigme" class="card shadow-sm">
     <div class="card-header">
         <h1 class="h3">{{ $egg->title }}</h1>
         <p>QR Code trouvé : <strong>{{ $egg->code }}</strong></p>
@@ -15,7 +15,7 @@
             </div>
         @endif
         <h2 class="h5">Énigme</h2>
-        <p class="fs-5">{{ $egg->clue }}</p>
+        <p class="fs-5">{!! $egg->clue !!}</p>
         @if ($egg->hint)
             <div class="mt-4">
                 <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#hintCollapse" aria-expanded="false" aria-controls="hintCollapse">
@@ -156,6 +156,22 @@
                 form.parentNode.insertBefore(msg, form.nextSibling);
             }
         }
+
+        // Détection du shake uniquement pour FOTGN
+        @if($egg->code === 'FOTGN')
+        let lastShake = 0;
+        window.addEventListener('devicemotion', function(event) {
+            const acc = event.accelerationIncludingGravity;
+            const shakeThreshold = 15;
+            if (acc && (Math.abs(acc.x) > shakeThreshold || Math.abs(acc.y) > shakeThreshold || Math.abs(acc.z) > shakeThreshold)) {
+                const now = Date.now();
+                if (now - lastShake > 1000) {
+                    lastShake = now;
+                    alert('poule');
+                }
+            }
+        });
+        @endif
     });
 </script>
 @endpush

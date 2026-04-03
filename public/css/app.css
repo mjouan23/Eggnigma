@@ -79,6 +79,10 @@ body.countdown-page .content {
     padding-bottom: 80px;
 }
 /*  Page Enigme */
+#egg-enigme .card-body img {
+    max-width: 80svw;
+    max-height: 40svh;
+}
 .accordion-button:not(.collapsed) {
     background-color: initial !important;
     color: initial !important;

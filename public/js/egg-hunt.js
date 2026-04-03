@@ -22,7 +22,7 @@ function isSessionElapsed() {
 
 function addFoundEgg(egg) {
     if (isSessionElapsed()) {
-        alert('La chasse est terminée, tu ne peux plus scanner de nouveaux œufs.');
+        // alert('La chasse est terminée, tu ne peux plus scanner de nouveaux œufs.');
         return;
     }
 
@@ -55,7 +55,7 @@ function addFoundEgg(egg) {
 
 function markEggSolved(code) {
     if (isSessionElapsed()) {
-        alert('La chasse est terminée, tu ne peux plus répondre aux énigmes.');
+        // alert('La chasse est terminée, tu ne peux plus répondre aux énigmes.');
         return;
     }
 
