@@ -136,6 +136,7 @@ class EggSeeder extends Seeder
                 'clue' => '<p>Raphaël, Julien et Émile se disputent.</p><p>Raphaël dit que Julien ment.</p><p>Julien dit qu\'Émile ment.</p><p>Émile dit que Raphaël et Julien mentent".</p><p>Lesquels dit la vérité ?</p>',
                 'hint' => 'Si Raphaël dit la vérité, alors l\'affirmation de Julien selon laquelle Émile ment serait un mensonge.',
                 'answer' => 'Julien',
+                'image' => '',
             ],
             [
                 'code' => 'VSMQI',
