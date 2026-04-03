@@ -58,6 +58,26 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
 
+        // Désactive la saisie si l'énigme est déjà résolue
+        function isEggSolved(eggCode) {
+            try {
+                const found = JSON.parse(localStorage.getItem('eggHuntFoundEggs') || '[]');
+                return found.some(e => e.code === eggCode && e.solved);
+            } catch { return false; }
+        }
+
+        if (isEggSolved(@json($egg->code))) {
+            const form = document.getElementById('answer-form');
+            if (form) {
+                form.querySelectorAll('input, button').forEach(el => el.disabled = true);
+                const msg = document.createElement('div');
+                msg.className = 'alert alert-success mt-3';
+                msg.textContent = 'Énigme résolue !';
+                form.parentNode.insertBefore(msg, form.nextSibling);
+            }
+            return;
+        }
+
         // Si la chasse est terminée, affiche un message plein écran et bloque tout
         if (localStorage.getItem('eggHuntSessionElapsed') === '1') {
             showFullscreenMessage('La chasse est terminée !', 4000);
