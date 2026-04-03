@@ -1,3 +1,7 @@
+// Redirection automatique vers /rules si aucune session n'est en cours
+if (!localStorage.getItem('eggHuntSession') && window.location.pathname !== '/rules') {
+    window.location.href = '/rules';
+}
 // Synchronisation en temps réel du blocage de session sur tous les onglets
 window.addEventListener('storage', function(e) {
     if (e.key === 'eggHuntSessionElapsed' && e.newValue === '1') {
