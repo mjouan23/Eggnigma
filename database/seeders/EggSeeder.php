@@ -78,10 +78,10 @@ class EggSeeder extends Seeder
                 'code' => 'BGLSA',
                 'title' => 'La bombonne d\'eau',
                 'clue' => '<p>Une bonbonne d\'eau est presque vide, mais son volume double chaque jour.</p><p>Il faut 60 jours pour qu\'elle soit complètement remplie.</p><p>Combien de jours faut-il pour qu\'elle soit à moitié pleine ?</p>',
-                'hint' => 'Indiquer que le nombre de jours sans le mot jour',
+                'hint' => '',
                 'answer' => '59',
                 'image' => '',
-                'information' => '',
+                'information' => 'Indiquer le nombre de jours sans le mot "jours"',
             ],  
             [
                 'code' => 'MEGXA',
