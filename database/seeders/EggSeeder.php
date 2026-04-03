@@ -60,10 +60,10 @@ class EggSeeder extends Seeder
             ],  
             [
                 'code' => 'BKMFR',
-                'title' => '',
-                'clue' => '',
-                'hint' => '',
-                'answer' => '',
+                'title' => 'Encore et encore...',
+                'clue' => '<p>Ce n\'est pas la force qui compte, mais la répétition.</p><p>Trouve le bon compte, et le silence cédera.</p>',
+                'hint' => 'Tap tap !',
+                'answer' => 'le fromage c\'est la vie',
                 'image' => '',
             ],  
             [

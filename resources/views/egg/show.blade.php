@@ -107,6 +107,29 @@
             return overlay;
         }
 
+        // Détection de 10 tapes successives pour BKMFR
+        @if($egg->code === 'BKMFR')
+        let tapCount = 0;
+        let tapTimeout = null;
+        function resetTapCount() {
+            tapCount = 0;
+            if (tapTimeout) {
+                clearTimeout(tapTimeout);
+                tapTimeout = null;
+            }
+        }
+        document.addEventListener('touchend', function () {
+            tapCount++;
+            if (tapCount === 1) {
+                tapTimeout = setTimeout(resetTapCount, 3000); // 3s pour faire la séquence
+            }
+            if (tapCount === 10) {
+                resetTapCount();
+                alert('le fromage c\'est la vie');
+            }
+        });
+        @endif
+
         function showGoodAnswerOverlay() {
             const overlay = showOverlay(@json(asset('images/good-answer.png')));
             setTimeout(function () {
