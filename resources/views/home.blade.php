@@ -45,7 +45,7 @@
             logo.style.cursor = 'pointer';
             logo.addEventListener('click', function(e) {
                 e.preventDefault();
-                showFullscreenMessage('Enigme RDNOC : Cocotte', 2500);
+                showFullscreenMessage('Réponse à l\'énigme RDNOC : Cocotte', 2500);
             });
         }
     });

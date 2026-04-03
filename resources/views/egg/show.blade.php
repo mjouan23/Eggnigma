@@ -99,7 +99,7 @@
 
         // Si la chasse est terminée, affiche un message plein écran et bloque tout
         if (localStorage.getItem('eggHuntSessionElapsed') === '1') {
-            showFullscreenMessage('La chasse est terminée !', 4000);
+            showFullscreenMessage('La chasse est terminée !', 2000);
             // Désactive le formulaire de réponse
             const form = document.getElementById('answer-form');
             if (form) {
@@ -180,7 +180,7 @@
             }
             if (tapCount === 10) {
                 resetTapCount();
-                showFullscreenMessage('le fromage c\'est la vie', 2000);
+                showFullscreenMessage('Réponse à l\'énigme BKMFR : le fromage c\'est la vie', 2000);
             }
         });
         @endif
@@ -245,7 +245,7 @@
                 const now = Date.now();
                 if (now - lastShake > 1000) {
                     lastShake = now;
-                    showFullscreenMessage('poule', 2000);
+                    showFullscreenMessage('Réponse à l\'énigme FOTGN : poule', 2000);
                 }
             }
         });

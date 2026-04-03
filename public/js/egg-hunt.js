@@ -35,7 +35,7 @@ window.addEventListener('storage', function(e) {
         }
         // Affiche un message plein écran
         if (typeof showFullscreenMessage === 'function') {
-            showFullscreenMessage('La chasse est terminée !', 3000);
+            showFullscreenMessage('La chasse est terminée !', 2000);
         }
     }
 });
