@@ -57,7 +57,7 @@
     </div>
 </nav>
 <input type="file" id="qrCameraInput" accept="image/*" capture="environment" style="display:none">
-<button id="scanQRCodeButton" type="button" aria-label="Scanner un QR Code">
+<button id="scanQRCodeButton" type="button" aria-label="Scanner un QR Code" disabled style="opacity:0.5;pointer-events:none;">
     {!! file_get_contents(public_path('icons/qr-code.svg')) !!}
 </button>
 <div id="qrScannerOverlay" class="qr-scanner-overlay" style="display:none;">
@@ -70,9 +70,26 @@
     </div>
 </div>
 @endif
+<script src="{{ asset('js/util.js') }}"></script>
+<script src="{{ asset('js/egg-hunt.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+                // Désactive le bouton scan si pas de session ou session terminée
+                try {
+                    var scanBtn = document.getElementById('scanQRCodeButton');
+                    var session = localStorage.getItem('eggHuntSession');
+                    var elapsed = localStorage.getItem('eggHuntSessionElapsed');
+                    if (!session || elapsed === '1') {
+                        scanBtn.disabled = true;
+                        scanBtn.style.opacity = '0.5';
+                        scanBtn.style.pointerEvents = 'none';
+                    } else {
+                        scanBtn.disabled = false;
+                        scanBtn.style.opacity = '';
+                        scanBtn.style.pointerEvents = '';
+                    }
+                } catch (e) {}
         var scanButton = document.getElementById('scanQRCodeButton');
         var cameraInput = document.getElementById('qrCameraInput');
         var overlay = document.getElementById('qrScannerOverlay');
