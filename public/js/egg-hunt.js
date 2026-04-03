@@ -17,12 +17,15 @@ function saveFoundEggs(eggs) {
 }
 
 function isSessionElapsed() {
+    // Si aucune session, ou session terminée, on bloque
+    const session = localStorage.getItem('eggHuntSession');
+    if (!session) return true;
     return localStorage.getItem('eggHuntSessionElapsed') === '1';
 }
 
 function addFoundEgg(egg) {
     if (isSessionElapsed()) {
-        // alert('La chasse est terminée, tu ne peux plus scanner de nouveaux œufs.');
+        showFullscreenMessage('La chasse est terminée !', 2000);
         return;
     }
 
@@ -55,7 +58,7 @@ function addFoundEgg(egg) {
 
 function markEggSolved(code) {
     if (isSessionElapsed()) {
-        // alert('La chasse est terminée, tu ne peux plus répondre aux énigmes.');
+        showFullscreenMessage('La chasse est terminée !', 2000);
         return;
     }
 

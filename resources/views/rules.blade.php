@@ -81,8 +81,40 @@
 </div>
 @endsection
 @push('scripts')
+<script src="{{ asset('js/util.js') }}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+                // Méthode générique d'affichage plein écran pour tous les messages
+                function showFullscreenMessage(message, duration = 2000) {
+                    const overlay = document.createElement('div');
+                    overlay.className = 'fullscreen-message-overlay';
+                    Object.assign(overlay.style, {
+                        position: 'fixed',
+                        top: '0',
+                        left: '0',
+                        width: '100vw',
+                        height: '100vh',
+                        background: 'rgba(0,0,0,0.95)',
+                        color: '#fff',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex: '3000',
+                        fontSize: '2.5rem',
+                        fontWeight: 'bold',
+                        textAlign: 'center',
+                        padding: '2rem',
+                        userSelect: 'none',
+                        transition: 'opacity 0.3s',
+                        opacity: '1',
+                    });
+                    overlay.textContent = message;
+                    document.body.appendChild(overlay);
+                    setTimeout(() => {
+                        overlay.style.opacity = '0';
+                        setTimeout(() => overlay.remove(), 300);
+                    }, duration);
+                }
         try {
             localStorage.setItem('eggnigmaRulesVisited', '1');
         } catch (error) {
@@ -121,14 +153,14 @@
                     .then(res => res.json())
                     .then(data => {
                         if (data.error) {
-                            alert('Session introuvable.');
+                            showFullscreenMessage('Session introuvable.', 2000);
                             return;
                         }
                         // Écrase toujours la session précédente
                         localStorage.setItem('eggHuntSession', JSON.stringify(data));
                         window.location.href = '/';
                     })
-                    .catch(() => alert('Erreur lors de la recherche de la session.'));
+                    .catch(() => showFullscreenMessage('Erreur lors de la recherche de la session.', 2000));
             });
         }
     });

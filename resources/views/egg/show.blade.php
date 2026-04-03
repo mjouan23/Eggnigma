@@ -45,6 +45,7 @@
 @endsection
 
 @push('scripts')
+<script src="{{ asset('js/util.js') }}"></script>
 <script src="{{ asset('js/egg-hunt.js') }}"></script>
 @php
     $foundEggData = [
@@ -125,7 +126,7 @@
             }
             if (tapCount === 10) {
                 resetTapCount();
-                alert('le fromage c\'est la vie');
+                showFullscreenMessage('le fromage c\'est la vie', 2000);
             }
         });
         @endif
@@ -190,7 +191,7 @@
                 const now = Date.now();
                 if (now - lastShake > 1000) {
                     lastShake = now;
-                    alert('poule');
+                    showFullscreenMessage('poule', 2000);
                 }
             }
         });
