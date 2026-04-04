@@ -25,8 +25,8 @@ class AdminSessionController extends Controller
         $session = HuntSession::create([
             'session_key' => $code,
             'started_at' => now(),
-            // 'ends_at' => now()->addHour(),
-            'ends_at' => now()->addMinutes(2), // 2 minutes pour test
+            'ends_at' => now()->addHour(),
+            // 'ends_at' => now()->addMinutes(2), // 2 minutes pour test
         ]);
         session(['created_session_code' => $code]);
         return redirect()->route('organizer.show')->with('created_session_code', $code);

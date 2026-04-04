@@ -4,7 +4,7 @@
 @section('body-class', 'rules-page')
 
 @section('content')
-<div class="text-center mb-4">
+<div class="text-center my-4">
     <img src="{{ asset('images/logo.png') }}" alt="Eggnigma" height="100">
     <h1 class="mt-2">Règles du jeu</h1>
 </div>

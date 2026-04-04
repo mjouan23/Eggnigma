@@ -3,7 +3,7 @@
 @section('title', 'Énigme - ' . $egg->title)
 
 @section('content')
-<div id="egg-enigme" class="card shadow-sm">
+<div id="egg-enigme" class="card shadow-sm mt-4">
     <div class="card-header">
         <h1 class="h3">{{ $egg->title }}</h1>
         <p>QR Code trouvé : <strong>{{ $egg->code }}</strong></p>
