@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('session-infos').textContent = '';
         return;
     }
+    let timer;
     function updateCountdown() {
         const now = new Date();
         const ms = endsAt - now;
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('session-infos-start').textContent = 'Début de la chasse : ' + startedAt.toLocaleString();
     document.getElementById('session-infos-end').textContent = 'Fin de la chasse : ' + endsAt.toLocaleString();
     updateCountdown();
-    const timer = setInterval(updateCountdown, 1000);
+    timer = setInterval(updateCountdown, 1000);
 });
 </script>
 @endpush
