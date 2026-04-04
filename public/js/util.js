@@ -22,7 +22,17 @@ function showFullscreenMessage(message, duration = 2000) {
         transition: 'opacity 0.3s',
         opacity: '1',
     });
-    overlay.textContent = message;
+    // Si le message est "La chasse est terminée" (ou contient cette phrase), affiche l'image
+    if (typeof message === 'string' && message.toLowerCase().includes('chasse est terminée')) {
+        const img = document.createElement('img');
+        img.src = '/images/elapsed-time.png';
+        img.alt = 'La chasse est terminée';
+        img.style.maxWidth = '80vw';
+        img.style.maxHeight = '80vh';
+        overlay.appendChild(img);
+    } else {
+        overlay.textContent = message;
+    }
     document.body.appendChild(overlay);
     setTimeout(() => {
         overlay.style.opacity = '0';
