@@ -156,6 +156,15 @@ class EggSeeder extends Seeder
                 'information' => '',
             ],
             [
+                'code' => 'UYVTR',
+                'title' => 'Code à casser',
+                'clue' => 'Trouve le code !',
+                'hint' => '',
+                'answer' => '394',
+                'image' => '/images/eggs/uyvtr.png',
+                'information' => '',
+            ],  
+            [
                 'code' => 'VSMQI',
                 'title' => 'Les dents',
                 'clue' => 'Qu\'est-ce qui a des dents, mais ne mange pas ?',
@@ -167,7 +176,7 @@ class EggSeeder extends Seeder
             [
                 'code' => 'XBKER',
                 'title' => 'Le nombre mystère',
-                'clue' => 'Quel numéro se chache derrière ce point d\'interrogation ?',
+                'clue' => 'Quel numéro se cache derrière ce point d\'interrogation ?',
                 'hint' => '',
                 'answer' => '87',
                 'image' => '/images/eggs/xbker.png',
