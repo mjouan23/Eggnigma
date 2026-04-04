@@ -79,17 +79,9 @@
                 try {
                     var scanBtn = document.getElementById('scanQRCodeButton');
                     var session = localStorage.getItem('eggHuntSession');
-                    var elapsed = localStorage.getItem('eggHuntSessionElapsed');
-                    var scanMsg = document.getElementById('scanEndMessage');
+                    var elapsed = localStorage.getItem('eggHuntSessionElapsed');;
                     if (!session || elapsed === '1') {
                         scanBtn.disabled = true;
-                        if (!scanMsg) {
-                            scanMsg = document.createElement('div');
-                            scanMsg.id = 'scanEndMessage';
-                            scanMsg.className = 'alert alert-warning text-center mt-2';
-                            scanMsg.textContent = 'La chasse est terminée, tu ne peux plus scanner de nouveaux œufs.';
-                            scanBtn.parentNode.insertBefore(scanMsg, scanBtn.nextSibling);
-                        }
                     } else {
                         scanBtn.disabled = false;
                         if (scanMsg) scanMsg.remove();

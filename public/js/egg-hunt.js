@@ -56,14 +56,6 @@ window.addEventListener('storage', function(e) {
         var scanBtn = document.getElementById('scanQRCodeButton');
         if (scanBtn) {
             scanBtn.disabled = true;
-            var scanMsg = document.getElementById('scanEndMessage');
-            if (!scanMsg) {
-                scanMsg = document.createElement('div');
-                scanMsg.id = 'scanEndMessage';
-                scanMsg.className = 'alert alert-warning text-center mt-2';
-                scanMsg.textContent = 'La chasse est terminée, tu ne peux plus scanner de nouveaux œufs.';
-                scanBtn.parentNode.insertBefore(scanMsg, scanBtn.nextSibling);
-            }
         }
         // Affiche un message plein écran
         if (typeof showFullscreenMessage === 'function') {
