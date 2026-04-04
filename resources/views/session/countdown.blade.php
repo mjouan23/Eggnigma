@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Affiche l'overlay
             const overlay = document.getElementById('elapsed-overlay');
             overlay.style.display = 'flex';
+            // Notifie tous les onglets de recharger
+            localStorage.setItem('eggHuntForceReload', Date.now().toString());
             setTimeout(function() {
                 overlay.style.display = 'none';
                 window.location.href = '/';

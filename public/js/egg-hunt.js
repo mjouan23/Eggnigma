@@ -1,3 +1,9 @@
+// Force le rechargement sur tous les onglets à la fin de la session
+window.addEventListener('storage', function(e) {
+    if (e.key === 'eggHuntForceReload') {
+        window.location.reload();
+    }
+});
 // Redirection automatique vers /rules si aucune session n'est en cours
 if (
     !localStorage.getItem('eggHuntSession') &&
