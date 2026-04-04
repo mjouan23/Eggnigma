@@ -74,6 +74,10 @@ body.countdown-page .content {
 .badge.bg-success {
     background-color: var(--success) !important;
 }
+.btn.btn-danger {
+    background-color: var(--dark) !important;
+    border-color: var(--dark) !important;
+}
 /* Page CountDown */
 #countdown-container {
     padding-bottom: 80px;

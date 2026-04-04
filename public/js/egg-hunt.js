@@ -1,3 +1,29 @@
+// Vérification automatique du temps écoulé sur toutes les pages
+function checkSessionElapsedAndBlock() {
+    const sessionRaw = localStorage.getItem('eggHuntSession');
+    if (sessionRaw) {
+        try {
+            const session = JSON.parse(sessionRaw);
+            if (session.started_at && session.ends_at) {
+                const startedAt = new Date(session.started_at);
+                const endsAt = new Date(session.ends_at);
+                const now = new Date();
+                if (!isNaN(startedAt.getTime()) && !isNaN(endsAt.getTime()) && now >= startedAt && now >= endsAt) {
+                    if (localStorage.getItem('eggHuntSessionElapsed') !== '1') {
+                        localStorage.setItem('eggHuntSessionElapsed', '1');
+                        // Notifie tous les onglets de recharger (pour overlay)
+                        localStorage.setItem('eggHuntForceReload', Date.now().toString());
+                    }
+                }
+            }
+        } catch (e) {}
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    checkSessionElapsedAndBlock();
+    setInterval(checkSessionElapsedAndBlock, 1000);
+});
 // Force le rechargement sur tous les onglets à la fin de la session
 window.addEventListener('storage', function(e) {
     if (e.key === 'eggHuntForceReload') {

@@ -33,6 +33,9 @@
         <div id="noEggs" class="alert alert-info mt-3">Aucun œuf trouvé pour l'instant. Scannez un QR Code pour commencer.</div>
     </div>
 </div>
+<div id="quitSessionContainer" class="d-flex justify-content-end mt-4" style="display:none;">
+    <button id="quitSessionBtn" class="btn btn-danger">Quitter la chasse</button>
+</div>
 @endsection
 
 @push('scripts')
@@ -46,6 +49,25 @@
             logo.addEventListener('click', function(e) {
                 e.preventDefault();
                 showFullscreenMessage('Réponse à l\'énigme RDNOC : Cocotte', 2500);
+            });
+        }
+
+        // Affiche le bouton Quitter la chasse seulement si une session est en cours
+        var quitContainer = document.getElementById('quitSessionContainer');
+        var quitBtn = document.getElementById('quitSessionBtn');
+        if (localStorage.getItem('eggHuntSession')) {
+            if (quitContainer) quitContainer.style.display = 'flex';
+        } else {
+            if (quitContainer) quitContainer.style.display = 'none';
+        }
+        if (quitBtn) {
+            quitBtn.addEventListener('click', function() {
+                if (confirm('Es-tu sûr de vouloir quitter la chasse ? Cette action effacera ta progression.')) {
+                    localStorage.removeItem('eggHuntSession');
+                    localStorage.removeItem('eggHuntSessionElapsed');
+                    localStorage.removeItem('eggHuntFoundEggs');
+                    window.location.reload();
+                }
             });
         }
     });
